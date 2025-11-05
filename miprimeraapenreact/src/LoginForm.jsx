@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import TextField from '@mui/material/TextField';
 import Typography from "@mui/material/Typography";
 import './App.css';
+import login from './actions/Login';
 
 //Prop
 const LoginForm = ({title}) => {
@@ -12,15 +13,14 @@ const LoginForm = ({title}) => {
     const [password, setPassword] = useState("");
 
     const handleLogin = ()=>{
-        console.log(username);
-        console.log(password);
+        login({username:username, password: password});   
     }
 
     return (
         <Stack>
             <Typography variant='h2'>{title}</Typography>
             <TextField label="Username" value={username} onChange={(event)=>setUsername(event.target.value)}/>
-            <TextField label="Password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
+            <TextField label="Password" value={password} type='password' onChange={(event)=>setPassword(event.target.value)}/>
             <Button onClick={handleLogin}>Iniciar Sesión</Button>
         </Stack>
     );
