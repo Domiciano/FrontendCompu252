@@ -1,8 +1,10 @@
+import { baseurl} from "../utils/constant";
+
 const getAllStudents = async ()=>{
 
     let token = localStorage.getItem("accessToken");
     console.log(token);
-    let response = await fetch("http://192.168.131.195:8080/api/v1/professors", {
+    let response = await fetch(`${baseurl}/api/v1/students`, {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`

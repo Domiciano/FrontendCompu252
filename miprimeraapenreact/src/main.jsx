@@ -7,6 +7,6 @@ import StudentListScreen from './screens/StudentListScreen.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>  
-    <StudentListScreen></StudentListScreen>
+    <App></App>
   </StrictMode>,
 )

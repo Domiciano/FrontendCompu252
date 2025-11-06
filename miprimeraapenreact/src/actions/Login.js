@@ -1,3 +1,5 @@
+import { baseurl} from "../utils/constant";
+
 const login = async ({username, password})=>{
 
     let obj = {username: username, password:password};
@@ -5,7 +7,7 @@ const login = async ({username, password})=>{
     //OBJ -> STRING
     let json = JSON.stringify(obj);
 
-    let response = await fetch("http://192.168.131.195:8080/api/v1/auth/login", {
+    let response = await fetch(`${baseurl}/api/v1/auth/login`, {
         method:"POST",
         headers: {
             "Content-Type":"application/json"
