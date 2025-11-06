@@ -15,10 +15,13 @@ const login = async ({username, password})=>{
         body: json
     });
     console.log(response);
-    let data = await response.json();
-    console.log(data.accessToken);
-
-    localStorage.setItem("accessToken", data.accessToken);
+    if(response.status === 200){
+        let data = await response.json();
+        console.log(data.accessToken);
+        localStorage.setItem("accessToken", data.accessToken);
+    }else{
+        throw new Error("El login no pudo ejecutarse correctamente");
+    }
     
 }
 
