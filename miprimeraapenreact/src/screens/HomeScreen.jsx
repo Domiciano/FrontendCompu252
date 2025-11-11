@@ -4,25 +4,14 @@ import logo from '../assets/logo.png';
 
 const drawerWidth = 240;
 
-/**
- * Determina si un item del menú está activo basándose en la ruta actual
- * @param {string} itemPath - La ruta del item del menú
- * @param {string} currentPath - La ruta actual de la aplicación
- * @returns {boolean} - true si el item está activo, false en caso contrario
- */
+
 const isMenuItemActive = (itemPath, currentPath) => {
-  // Coincidencia exacta
   if (currentPath === itemPath) {
     return true;
   }
-  
-  // Para rutas anidadas (ej: /home/students/123 activa /home/students)
-  // Solo considerar activo si la ruta actual comienza con la ruta del item + '/'
-  // Esto evita que /home active /home/students
   if (currentPath.startsWith(itemPath + '/')) {
     return true;
   }
-  
   return false;
 };
 
