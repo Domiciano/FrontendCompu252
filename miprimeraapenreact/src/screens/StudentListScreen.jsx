@@ -2,10 +2,12 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import getAllStudents from "../actions/GetAllStudents";
+import StudentComponent from "../component/StudentComponent";
+import { useNavigate } from "react-router-dom";
 
 
 const StudentListScreen = ()=>{
-
+    const navigate = useNavigate();
     const [list , setList] = useState([]);
 
     useEffect(()=>{
@@ -19,8 +21,12 @@ const StudentListScreen = ()=>{
 
     return (
         <Stack direction="column">
-            <Typography>Lista de estudiantes</Typography>
-            {list.length !== 0 && list.map( (obj)=> (<Typography key={obj.id}>{obj.name}</Typography>) )}
+            <Typography variant="h2">Lista de estudiantes</Typography>
+            {list.length !== 0 
+            && list.map( 
+                (obj)=> (<StudentComponent key={obj.id} student={obj} onClicked={()=>{
+                    navigate(`/students/${obj.id}`);
+            }}/>) )}
         </Stack>
     );
 }

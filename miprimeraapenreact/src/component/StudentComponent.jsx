@@ -7,7 +7,7 @@ const StudentComponent = ({student, onClicked})=>{
         <Stack>
             <Typography variant="h5">{student.name}</Typography>
             <Typography>{student.code}</Typography>
-            <Button onClick={onClicked}></Button>
+            <Button onClick={onClicked}>Ver detalles</Button>
         </Stack>
     );
 }

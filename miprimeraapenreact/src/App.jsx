@@ -9,6 +9,7 @@ import StudentListScreen from "./screens/StudentListScreen";
 import NotFound from "./screens/NotFound";
 import StudentDetailScreen from "./screens/StudentDetailScreen";
 import HomeScreen from "./screens/HomeScreen";
+import ConfigScreen from "./screens/ConfigScreen";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,20 @@ const router = createBrowserRouter([
   {
     path: "/students/:studentId",
     element: <StudentDetailScreen/>
+  },
+  {
+    path: "/home",
+    element: <HomeScreen paths={[{path:"", text:"Estudiantes"}, {path:"config", text:"Configuración"}]}/>,
+    children:[
+      {
+        index: true,
+        element: <StudentListScreen/>
+      },
+      {
+        path:"config",
+        element: <ConfigScreen/>
+      }
+    ]
   },
   {
     path: "*",
