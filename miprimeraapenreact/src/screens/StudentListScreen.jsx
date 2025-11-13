@@ -25,7 +25,7 @@ const StudentListScreen = ()=>{
             {list.length !== 0 
             && list.map( 
                 (obj)=> (<StudentComponent key={obj.id} student={obj} onClicked={()=>{
-                    navigate(`/students/${obj.id}`);
+                    navigate(`/home/students/${obj.id}`);
             }}/>) )}
         </Stack>
     );

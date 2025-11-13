@@ -17,14 +17,6 @@ const router = createBrowserRouter([
     element: <LoginForm/>
   },
   {
-    path: "/students",
-    element: <StudentListScreen/>
-  },
-  {
-    path: "/students/:studentId",
-    element: <StudentDetailScreen/>
-  },
-  {
     path: "/home",
     element: <HomeScreen paths={[{path:"", text:"Estudiantes"}, {path:"config", text:"Configuración"}]}/>,
     children:[
@@ -35,7 +27,11 @@ const router = createBrowserRouter([
       {
         path:"config",
         element: <ConfigScreen/>
-      }
+      },
+      {
+        path: "students/:studentId",
+        element: <StudentDetailScreen/>
+      },
     ]
   },
   {
